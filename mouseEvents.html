@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Mouse Events</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        h1 {
+            color: #00ff99;
+            text-shadow: 0px 0px 10px #00ffcc;
+            font-size: 4rem;
+            border-bottom: 1px solid #00ffcc;
+           width: 500px;
+           display: inline;
+        }
+        h2 {
+            color: #00ff99;
+            text-shadow: 0px 0px 10px #00ffcc;
+        }
+
+        button {
+            background-color: #111;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #00ffcc;
+            color: #111;
+            box-shadow: 0 0 20px #00ffcc;
+        }
+
+        img {
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.4);
+            transition: transform 0.5s ease;
+        }
+
+        .color-codes-rgb {
+            color: #ff00ff;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0px 0px 10px #ff00ff;
+        }
+
+        .hover_to_change_text {
+            font-size: 22px;
+            color: #ffff00;
+            transition: color 0.3s ease;
+        }
+
+        .hover_to_change_text:hover {
+            color: #00ffcc;
+            text-shadow: 0px 0px 10px #00ffcc;
+        }
+
+        .show_hold {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 5px;
+        }
+
+        .stop-party,
+        .reset-party,
+        .hidden,
+        .crying {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JS Mouse Events</h1>
+
+    <h2>🎧 1-Change Background on Click (DJ Mode)</h2>
+    <button class="bg-changer-btn">🎛️ Change BG</button>
+    <button class="bg-changer-interval">🎵 Auto Party Mode</button>
+    <button class="stop-party">🛑 Stop Party</button>
+    <button class="reset-party">🛑 Reset Party</button>
+    <p class="color-codes-rgb"></p>
+
+    <img class="hidden showOnParty" height="300px" width="400"
+        src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ213aWNuaW8xOGYwcDM2ZGl0emJ1MzFneWtnZ2t0ejdvcmtwcXhzeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uqKBtl2EYcKnGYbO4T/giphy.gif"
+        alt="">
+    <img class="hidden showOnParty" height="300px" width="400"
+        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWt4eGFnMjYwb3N3ajd5cjY3NTZyeGExNjQ1ZDVqNjdzb2l3MnVneSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1hA1EpKqr7BIC11kbG/giphy.gif"
+        alt="">
+
+    <img class="hidden showOnParty flip" height="300px" width="400"
+        src="https://gifdb.com/images/high/musician-jiggle-happy-dance-meme-wktfxo56kpn2svt0.webp" alt="">
+
+    <img class="hidden crying" height="300px" width="400"
+        src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2Y0MGhtaHJqMTFsdHBiMXZsMnZ0NWNjMWtocXh1MHh1NWRqaHVzYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26FeYNcRrHNc4mG6k/giphy.gif"
+        alt="">
+    <img class="hidden crying" height="300px" width="400"
+        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnU0dGZtOTBxZDdkb2VuaHZ2aDQ1MGpiZXl0OGd5Zjl5Y3J3MXQ5cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohfFpHY8mfSqIapuE/giphy.gif"
+        alt="">
+    <img class="hidden crying" height="300px" width="400"
+        src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWh4dmphejN2MDRzeTVpa3I4djQ5dnQwNG1xYnhsbHp1bjk4dDJ3dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1Ku9RXEFBEY4zdM4/giphy.gif"
+        alt="">
+
+    <hr style="border: 1px solid #00ffcc; margin: 30px 0;">
+
+    <h2>2- Hide Image on Double Click and Bring Back When Reset Button is Clicked</h2>
+    <img class="image_to_hide" width="300"
+        src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDRsMzd5Y2t6YWF4NTJzeTF1NHUxNjJzbHV5ZDZlb282MDR0NG1tdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IGyQqBNbccyHCllRlw/giphy.gif"
+        alt="user-Image">
+    <br>
+    <button class="hide_click">Double Click to Hide</button>
+    <button class="show_click">Reset</button>
+
+    <hr style="border: 1px solid #00ffcc; margin: 30px 0;">
+
+    <h2>3-Change Text on Hover</h2>
+    <span class="hover_to_change_text">Hover on Me!</span>
+
+    <hr style="border: 1px solid #00ffcc; margin: 30px 0;">
+
+    <h2>4-Button Hold Effect</h2>
+    <button class="hold_effect">Click and Hold</button>
+    <p class="show_hold">Not Clicked and Hold</p>
+
+    <hr style="border: 1px solid #00ffcc; margin: 30px 0;">
+
+    <h2>5- Mouse Coordinates Tracker</h2>
+    <span>MouseX: </span>
+    <p class="mouse_x"></p>
+    <span>MouseY: </span>
+    <p class="mouse_y"></p>
+
+    <!-- 🔊 Audio file -->
+    <audio class="party-audio" src="music.mp3" loop></audio>
+    <audio class="after-party-audio" src="after-party.mp3" loop></audio>
+
+    <script>
+        const bg_changer_btn = document.querySelector(".bg-changer-btn");
+        const color_codes_rgb = document.querySelector(".color-codes-rgb");
+        const bg_changer_interval = document.querySelector(".bg-changer-interval");
+        const stop_party = document.querySelector(".stop-party");
+        const flips = document.querySelector(".flip");
+        const audio = document.querySelector(".party-audio");
+        const afterPartyAudio = document.querySelector(".after-party-audio");
+        const reset_party = document.querySelector(".reset-party");
+        const afterPartImages = document.querySelectorAll(".crying")
+        const onPartImages = document.querySelectorAll(".showOnParty")
+
+        let flipped = false;
+        let partyInterval = null;
+
+        const randomDarkColor = () => Math.floor(Math.random() * 120);
+
+        const setDarkRandomColor = () => {
+            afterPartyAudio.pause();
+            afterPartImages.forEach((image) => {
+                image.style.display = "none"
+            })
+            onPartImages.forEach((image) => {
+                image.style.display = "inline"
+            })
+
+            stop_party.style.display = "inline"
+            const red = randomDarkColor();
+            const green = randomDarkColor();
+            const blue = randomDarkColor();
+            document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            color_codes_rgb.textContent = `rgb(${red}, ${green}, ${blue})`;
+
+
+            flipped = !flipped;
+            flips.style.transform = flipped ? "scaleX(-1)" : "scaleX(1)";
+            flips.style.transition = "none";
+
+
+
+        };
+
+        const reset_partyHandler = () => {
+            reset_party.style.display = "none";
+            afterPartyAudio.pause();
+            audio.pause();
+            afterPartImages.forEach((image) => {
+                image.style.display = "none"
+            })
+            onPartImages.forEach((image) => {
+                image.style.display = "none"
+            })
+
+        }
+
+        bg_changer_btn.addEventListener("click", setDarkRandomColor);
+        reset_party.addEventListener("click", reset_partyHandler);
+
+        bg_changer_interval.addEventListener("click", () => {
+            if (!partyInterval) {
+                partyInterval = setInterval(setDarkRandomColor, 300);
+                audio.currentTime = 0;
+                audio.play();
+            }
+        });
+
+        stop_party.addEventListener("click", () => {
+            reset_party.style.display = "inline";
+            stop_party.style.display = "none"
+            clearInterval(partyInterval);
+            partyInterval = null;
+            audio.pause();
+            document.body.style.backgroundColor = "#0d0d0d";
+            color_codes_rgb.textContent = "Party Stopped 🎧";
+            afterPartImages.forEach((image) => {
+                image.style.display = "inline"
+            })
+            onPartImages.forEach((image) => {
+                image.style.display = "none"
+            })
+
+            afterPartyAudio.currentTime = 0;
+            afterPartyAudio.play();
+
+            // reset image transform
+            flips.forEach(img => img.style.transform = "scaleX(1)");
+        });
+
+        // 2 - Hide & Show
+        const hide_click_btn = document.querySelector(".hide_click");
+        const show_click = document.querySelector(".show_click");
+        const imageToHide = document.querySelector(".image_to_hide");
+
+        hide_click_btn.addEventListener("dblclick", () => imageToHide.style.display = "none");
+        show_click.addEventListener("click", () => imageToHide.style.display = "inline");
+
+        // 3 - Hover Text
+        const hover_to_change_text = document.querySelector(".hover_to_change_text");
+        hover_to_change_text.addEventListener("mouseover", () => hover_to_change_text.textContent = "Hover In!!! 🎶");
+        hover_to_change_text.addEventListener("mouseout", () => hover_to_change_text.textContent = "Hover Out!!! 🎧");
+
+        // 4 - Hold Effect
+        const hold_effect = document.querySelector(".hold_effect");
+        const show_hold = document.querySelector(".show_hold");
+
+        hold_effect.addEventListener("mousedown", () => {
+            show_hold.textContent = "Holded!!! 🔥";
+            show_hold.style.color = "#00ff99";
+        });
+
+        hold_effect.addEventListener("mouseup", () => {
+            show_hold.textContent = "Released!!! 💨";
+            show_hold.style.color = "#ff00ff";
+        });
+
+        // 5 - Mouse Tracker
+        const mouse_x_text = document.querySelector(".mouse_x");
+        const mouse_y_text = document.querySelector(".mouse_y");
+
+        document.body.addEventListener("mousemove", (e) => {
+            mouse_x_text.textContent = e.clientX;
+            mouse_y_text.textContent = e.clientY;
+        });
+    </script>
+</body>
+
+</html>
