@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Events</title>
+</head>
+
+<body>
+    <h2>1-Key Pressed (keydown) </h2>
+    <input class="key_press" type="text" placeholder="Enter Something...">
+    <p class="key_press_text_show"></p>
+
+    <script>
+
+        // Key Press Event
+        const keyPressedInput = document.querySelector(".key_press")
+        const key_text_show = document.querySelector(".key_press_text_show")
+
+        keyPressedInput.addEventListener("keydown", (e) => {
+            key_text_show.textContent = `You Entered: ${e.key}`
+        })
+    </script>
+</body>
+
+</html>
